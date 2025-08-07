@@ -1,5 +1,3 @@
-# ambulance_detector.py
-
 import torch
 import cv2
 import time
@@ -18,7 +16,7 @@ AMBULANCE_KEYWORDS = ['ambulance']
 SERVER_URL = 'http://127.0.0.1:5000/ambulance_detected'
 
 # Load video
-video_path = 'media/traffic_video.mp4'  # Replace with your own video
+video_path = 'media/Ambulance🔥 #108 #ambulance - Deep Square Media (720p, h264, youtube).mp4' 
 cap = cv2.VideoCapture(video_path)
 
 if not cap.isOpened():
