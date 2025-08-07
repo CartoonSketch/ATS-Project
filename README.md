@@ -45,41 +45,6 @@ Advanced-Traffic-System-Ambulance/
 | 5 | `route_clearance_map/` | Simulates map-based path clearance visualization |
 | 6 | `integrated_demo/` | Integrates all modules to show the final system |
 
-## 🚀 How to Run the Project?
-
-### 1. Clone the Repository
-
-git clone https://github.com/yourusername/Advanced-Traffic-System-Ambulance.git
-cd Advanced-Traffic-System-Ambulance
-
-2. Set Up Virtual Environment (optional but recommended)
-
-python -m venv venv
-source venv/bin/activate     # Linux/macOS
-venv\Scripts\activate        # Windows
-
-3. Install Requirements for Flask Server
-
-cd flask_server
-pip install -r requirements.txt
-
-4. Run Flask Backend
-
-python app.py
-
-5. Start GPS Simulation
-
-python gps_simulation.py
-
-6. Run YOLOv5 Ambulance Detector
-
-python ambulance_detector.py
-
-⚠️ Note: Make sure to set correct video path and class (like “truck” or “ambulance”) in ambulance_detector.py.
-
-
-
-
 ## 📷 Sample Output
 
 You can store your demo screenshots and videos in the /media/ folder.
