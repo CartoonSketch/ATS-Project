@@ -1,5 +1,5 @@
-
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Ambulance Traffic Control System</title>
@@ -76,57 +76,66 @@
                 <button type="submit">Upload & Detect</button>
             </form>
             <div id="status" class="status"></div>
-        </div><div class="section">
-        <h2>Processed Video Output</h2>
-        <video id="output-video" controls hidden></video>
-    </div>
-
-    <div class="section">
-        <h2>Ambulance GPS Simulation</h2>
-        <iframe id="gps-map" src="https://www.openstreetmap.org/export/embed.html" width="100%" height="400"></iframe>
-    </div>
-
-    <div class="section">
-        <h2>Traffic Signal Reaction</h2>
-        <div class="traffic-light">
-            <div class="light" id="signal-red"></div>
-            <div class="light" id="signal-green"></div>
         </div>
-    </div>
-</main>
 
-<script>
-    const form = document.getElementById('upload-form');
-    const statusDiv = document.getElementById('status');
-    const video = document.getElementById('output-video');
+        <div class="section">
+            <h2>Processed Video Output</h2>
+            <video id="output-video" controls hidden></video>
+        </div>
 
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        statusDiv.textContent = 'Uploading and processing...';
+        <div class="section">
+            <h2>Ambulance GPS Simulation</h2>
+            <iframe id="gps-map" src="https://www.openstreetmap.org/export/embed.html" width="100%" height="400"></iframe>
+        </div>
 
-        const formData = new FormData(form);
+        <div class="section">
+            <h2>Traffic Signal Reaction</h2>
+            <div class="traffic-light">
+                <div class="light red" id="signal-red"></div>
+                <div class="light" id="signal-green"></div>
+            </div>
+        </div>
+    </main>
 
-        const response = await fetch('/predict', {
-            method: 'POST',
-            body: formData
+    <script>
+        const form = document.getElementById('upload-form');
+        const statusDiv = document.getElementById('status');
+        const video = document.getElementById('output-video');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            statusDiv.textContent = 'Uploading and processing...';
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    statusDiv.textContent = 'Ambulance detected. Processing complete.';
+
+                    video.src = `/static/${data.processed_video}`;
+                    video.hidden = false;
+
+                    document.getElementById('signal-green').classList.add('green');
+                    document.getElementById('signal-red').classList.remove('red');
+                } else {
+                    statusDiv.textContent = 'Error during processing. Please try again or check the video file format.';
+                }
+            } catch (error) {
+                statusDiv.textContent = 'Failed to connect to the server. Please try again later.';
+            }
         });
 
-        if (response.ok) {
-            const data = await response.json();
-            statusDiv.textContent = 'Ambulance detected. Processing complete.';
-
-            // Load processed video (assumes server returns filename)
-            video.src = `/static/${data.processed_video}`;
-            video.hidden = false;
-
-            // Simulate GPS + signal change
-            document.getElementById('signal-green').classList.add('green');
-            document.getElementById('signal-red').classList.remove('red');
-        } else {
-            statusDiv.textContent = 'Error during processing.';
-        }
-    });
-</script>
-
+        // Reset signal after video ends
+        video.addEventListener('ended', () => {
+            document.getElementById('signal-green').classList.remove('green');
+            document.getElementById('signal-red').classList.add('red');
+        });
+    </script>
 </body>
-</html>
+                </html>
