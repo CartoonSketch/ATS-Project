@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ambulance Traffic System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>🚑 Ambulance Traffic Monitoring System</h1>
+    
+    <div class="status">
+      <p><strong>Ambulance Status:</strong> <span id="ambulance-status">Loading...</span></p>
+      <p><strong>GPS Location:</strong> <span id="gps-location">Fetching...</span></p>
+      <p><strong>Signal State:</strong> <span id="signal-state">Updating...</span></p>
+    </div>
+    
+    <button onclick="fetchData()">🔄 Refresh</button>
+  </div>
+
+  <script>
+    async function fetchData() {
+      try {
+        const response = await fetch('/data');
+        const data = await response.json();
+
+        document.getElementById('ambulance-status').textContent = data.ambulance_detected ? 'Detected ✅' : 'Not Detected ❌';
+        document.getElementById('gps-location').textContent = `${data.gps.lat}, ${data.gps.lng}`;
+        document.getElementById('signal-state').textContent = data.signal;
+      } catch (err) {
+        alert('Failed to fetch data.');
+      }
+    }
+
+    // Auto-refresh every 5 seconds
+    setInterval(fetchData, 5000);
+    window.onload = fetchData;
+  </script>
+</body>
+</html>
