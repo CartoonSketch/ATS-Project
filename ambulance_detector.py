@@ -13,7 +13,7 @@ model.conf = 0.4
 AMBULANCE_KEYWORDS = ['ambulance']
 
 # Flask server URL to notify when ambulance is detected
-SERVER_URL = 'http://116.202.18.208:5000/ambulance_detected'
+SERVER_URL = 'http://127.0.0.1/ambulance_detected'
 
 # Load video
 video_path = 'media/Ambulance-demo.mp4' 
