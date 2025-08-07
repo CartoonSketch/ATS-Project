@@ -14,7 +14,7 @@ route_coordinates = [
     (28.6195, 77.2145),  # Destination (example: Hospital)
 ]
 
-SERVER_URL = "http://116.202.18.208:5000/gps_data"
+SERVER_URL = "http://127.0.0.1/gps_data"
 
 def send_gps_data():
     print("📍 Starting GPS Simulation for Ambulance...")
