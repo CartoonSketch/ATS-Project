@@ -2,6 +2,9 @@
 
 import tkinter as tk
 from tkinter import messagebox
+import requests
+
+SERVER_URL = "http://127.0.0.1:5000"
 
 class TrafficSignalGUI:
     def __init__(self, master):
@@ -24,12 +27,22 @@ class TrafficSignalGUI:
     def ambulance_detected(self):
         self.signal_status.set("AMBULANCE DETECTED - CLEAR PATH")
         self.status_label.config(fg="red")
-        messagebox.showinfo("Signal Update", "All signals turned RED except ambulance path.")
+        try:
+            requests.post(f"{SERVER_URL}/update_detection", json={"detected": True})
+            requests.post(f"{SERVER_URL}/update_signal", json={"signal": "RED"})
+            messagebox.showinfo("Signal Update", "All signals turned RED except ambulance path.")
+        except requests.exceptions.RequestException as e:
+            messagebox.showerror("Error", f"Failed to update server:\n{e}")
 
     def reset_signal(self):
         self.signal_status.set("NORMAL TRAFFIC MODE")
         self.status_label.config(fg="green")
-        messagebox.showinfo("Signal Update", "Traffic signals reset to normal mode.")
+        try:
+            requests.post(f"{SERVER_URL}/update_detection", json={"detected": False})
+            requests.post(f"{SERVER_URL}/update_signal", json={"signal": "GREEN"})
+            messagebox.showinfo("Signal Update", "Traffic signals reset to normal mode.")
+        except requests.exceptions.RequestException as e:
+            messagebox.showerror("Error", f"Failed to update server:\n{e}")
 
 if __name__ == "__main__":
     root = tk.Tk()
