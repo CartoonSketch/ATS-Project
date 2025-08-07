@@ -14,16 +14,16 @@ To design a **virtual traffic system** where:
 
 Advanced-Traffic-System-Ambulance/
 │
-├── README.md                    # Project intro, how to run, etc.
-├── ambulance_detector.py        # Module 1: YOLOv5 detection
-├── gps_simulation.py            # Module 2: GPS movement simulation
-├── traffic_signal_gui.py        # Module 4: GUI simulation
-├── flask_server/                # Module 3: Backend API
+├── README.md                   
+├── ambulance_detector.py        
+├── gps_simulation.py            
+├── traffic_signal_gui.py        
+├── flask_server/   
 │   ├── app.py
 │   └── requirements.txt
-├── route_clearance_map/         # Module 5: Visual path clearance
-├── integrated_demo/             # Module 6: Final working integration
-└── media/                       # Store any videos, screenshots, outputs
+├── route_clearance_map/       
+├── integrated_demo/           
+└── media/                      
 
 ## ⚙️ Technologies Used
 
