@@ -16,7 +16,7 @@ AMBULANCE_KEYWORDS = ['ambulance']
 SERVER_URL = 'http://127.0.0.1:5000/ambulance_detected'
 
 # Load video
-video_path = 'media/Ambulance🔥 #108 #ambulance - Deep Square Media (720p, h264, youtube).mp4' 
+video_path = 'media/Ambulance-demo.mp4' 
 cap = cv2.VideoCapture(video_path)
 
 if not cap.isOpened():
