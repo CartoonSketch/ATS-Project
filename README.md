@@ -1,4 +1,4 @@
-# 🚑 Advanced Traffic System for Path Clearance and Detection of Ambulance
+# 🚑 ATS for Path Clearance and Detection of Ambulance
 
 This project simulates an intelligent traffic management system that detects approaching ambulances using video footage, tracks their GPS locations, and clears traffic signals virtually to provide a green corridor to the hospital — **entirely through software**, without any physical hardware.
 
