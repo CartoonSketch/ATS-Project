@@ -35,7 +35,7 @@ if __name__ == "__main__":
     time.sleep(2)  # Give server time to start
 
     # Open browser for Flask interface (optional)
-    webbrowser.open("http://http://127.0.0.1:5000")
+    webbrowser.open("http://127.0.0.1:5000")
 
     # Run modules sequentially (can be made parallel if needed)
     run_ambulance_detection()
