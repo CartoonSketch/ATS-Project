@@ -5,7 +5,7 @@ This project simulates an intelligent traffic management system that detects app
 ## 📌 Project Objective
 
 To design a **virtual traffic system** where:
-- Ambulance is **automatically detected** using computer vision (YOLOv5).
+- Ambulance is **automatically detected** using computer vision models with the combination of YOLOv5 and OpenCV. 
 - Its **live GPS location** is simulated and sent to a Flask server.
 - **Traffic signals** are managed to **clear the path** for the ambulance.
 - All modules are integrated to demonstrate a working prototype in software.
