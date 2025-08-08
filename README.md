@@ -10,27 +10,12 @@ To design a **virtual traffic system** where:
 - **Traffic signals** are managed to **clear the path** for the ambulance.
 - All modules are integrated to demonstrate a working prototype in software.
 
-## 🧱 Project Structure
+## ⚙️ Approch/Logic Used
 
-Advanced-Traffic-System-Ambulance/
-│
-├── README.md                   
-├── ambulance_detector.py        
-├── gps_simulation.py            
-├── traffic_signal_gui.py        
-├── flask_server/   
-│   ├── app.py
-│   └── requirements.txt
-├── route_clearance_map/       
-├── integrated_demo/           
-└── media/                      
-
-## ⚙️ Technologies Used
-
-- 🔍 YOLOv5 (for ambulance detection)
-- 🐍 Python 3.8+
-- 🧠 OpenCV
-- 🌐 Flask (for backend server)
+- 🔍 YOLOv5 Model (for ambulance detection)
+- 🐍 Python 3.9 for Script 
+- 🧠 OpenCV Computer Vision for Detection from video.
+- 🌐 Flask app (for frontend/backend)
 - 🗺️ Folium / Map APIs (for map path clearance)
 - 🖥️ Tkinter / PyQt (for GUI traffic simulation)
 
@@ -49,10 +34,13 @@ Advanced-Traffic-System-Ambulance/
 
 You can store your demo screenshots and videos in the /media/ folder.
 
-
 ## 🙋‍♂️ Contributors
+Arnav Sharma (Team Lead)
+Akash Pandit (Team Co-Lead)
+Ganta Sanjay Reddy
+Abhishek Mishra
+Atharv Gupta
 
-Akash Pandit
 
 ## 📜 License
 
