@@ -36,9 +36,13 @@ You can store your demo screenshots and videos in the /media/ folder.
 
 ## 🙋‍♂️ Contributors
 Arnav Sharma (Team Lead)
+
 Akash Pandit (Team Co-Lead)
+
 Ganta Sanjay Reddy
+
 Abhishek Mishra
+
 Atharv Gupta
 
 
